@@ -1,4 +1,4 @@
-from data.app import app  # kyunki app.py data folder ke andar hai
+from data.app import app
 
 def test_header_present():
     header = app.layout.children[0]
