@@ -1,10 +1,15 @@
+import os
 import pandas as pd
 import plotly.express as px
 import dash
 from dash import dcc, html, Input, Output
 
+# Build path dynamically
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # project root
+CSV_PATH = os.path.join(BASE_DIR, "data", "processed_sales.csv")
+
 # Load and prepare data
-df = pd.read_csv("processed_sales.csv")
+df = pd.read_csv(CSV_PATH)
 df["date"] = pd.to_datetime(df["date"])
 df = df.sort_values("date")
 
